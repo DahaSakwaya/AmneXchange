@@ -4,9 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AmneXchange - Buy & Sell Crypto Instantly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -14,7 +13,6 @@
       background: #0b0b0b;
       color: #f5f5f5;
     }
-
     header {
       background: #111;
       padding: 1rem 2rem;
@@ -23,63 +21,37 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
     header img {
       height: 50px;
     }
-
     nav {
       display: flex;
       gap: 1.5rem;
     }
-
     nav a {
       text-decoration: none;
       color: #f5f5f5;
       font-weight: 600;
       transition: color 0.3s ease;
     }
-
     nav a:hover {
       color: gold;
     }
-
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      height: 3px;
-      background: gold;
-      margin: 4px 0;
-      width: 25px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
     .hero {
       padding: 4rem 2rem;
       background: radial-gradient(circle at center, #1a1a1a, #0b0b0b);
       text-align: center;
     }
-
     .hero h1 {
       font-size: 3rem;
       color: gold;
       margin-bottom: 1rem;
     }
-
     .hero p {
       font-size: 1.2rem;
       color: #ccc;
       margin-bottom: 2rem;
     }
-
     .btn {
       padding: 1rem 2rem;
       font-size: 1rem;
@@ -89,67 +61,56 @@
       color: black;
       font-weight: bold;
       cursor: pointer;
+      text-decoration: none;
       transition: background 0.3s ease;
-       text-decoration: none;
     }
-
     .btn:hover {
       background: #e0c200;
     }
-
     section {
       padding: 3rem 2rem;
       max-width: 1100px;
       margin: auto;
     }
-
     h2 {
       color: gold;
       text-align: center;
       margin-bottom: 2rem;
     }
-
-    .service-cards, .rate-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-
     .card {
       background: #1c1c1c;
       padding: 1.5rem;
       border-radius: 12px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex: 1;
     }
-
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 0 10px gold;
     }
-
-    .card span {
-      font-size: 2rem;
-      display: block;
+    .card img {
+      height: 40px;
       margin-bottom: 0.5rem;
     }
-
+    .rate-cards {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .contact {
       text-align: center;
     }
-
     .contact p {
       margin: 0.5rem 0;
     }
-
-  .social-icons a {
-  margin: 0 10px;
-  color: gold;
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-
-
+    .social-icons a {
+      margin: 0 0.5rem;
+      color: gold;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
     footer {
       text-align: center;
       padding: 1rem;
@@ -157,51 +118,16 @@
       font-size: 0.9rem;
       color: #ccc;
     }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-      }
-    }
   </style>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-  </script>
 </head>
 <body>
   <header>
     <img src="logo1.png" alt="AmneXchange Logo" />
     <nav>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#rates">Rates</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#rates">Rates</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -220,41 +146,76 @@
 
   <section id="services">
     <h2>Our Services</h2>
-    <div class="service-cards">
-      <div class="card"><span>💵</span>Buy & Sell USDT</div>
-      <div class="card"><span>💰</span>Buy & Sell Bitcoin</div>
-            <div class="card"><span>📤</span>Buy & Sell  NFT</div>
-              <div class="card"><span>💵</span>Buy & Sell Gift Cards</div>
-
-
+    <div class="rate-cards">
+      <div class="card">💰 Buy USDT</div>
+      <div class="card">💵 Sell USDT</div>
+      <div class="card">🪙 Buy Bitcoin</div>
+      <div class="card">📤 Sell Bitcoin</div>
     </div>
   </section>
 
   <section id="rates">
     <h2>Today's Rates</h2>
     <div class="rate-cards">
-      <div class="card"><span>USDT</span>₦1550 / $</div>
-      <div class="card"><span>BTC</span>₦1550 / $</div>
+      <div class="card">
+        <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT" />
+        <p><strong>USDT</strong> – ₦<span id="usdt-rate">1550</span></p>
+      </div>
+      <div class="card">
+        <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" />
+        <p><strong>BTC</strong> – ₦<span id="btc-rate">1550</span></p>
+      </div>
+      <div class="card">
+        <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" />
+        <p><strong>ETH</strong> – ₦<span id="eth-rate">1450</span></p>
+      </div>
+      <div class="card">
+        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="BNB" />
+        <p><strong>BNB</strong> – ₦<span id="bnb-rate">1400</span></p>
+      </div>
+      <div class="card">
+        <img src="https://cryptologos.cc/logos/pi-network-pi-logo.png" alt="Pi" />
+        <p><strong>Pi</strong> – ₦<span id="pi-rate">50</span></p>
+      </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact">
-     
-     <p class="social-icons">
-  <a href="https://wa.me/2348166553284" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://instagram.com/AmneXchange" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://twitter.com/AmneXchange" target="_blank"><i class="fab fa-x-twitter"></i></a>
-  <a href="https://facebook.com/AmneXchange" target="_blank"><i class="fab fa-facebook"></i></a>
-</p>
-
+      <p>📞 WhatsApp: <a href="https://wa.me/2348166553284">08166553284</a></p>
+      <p class="social-icons">
+        <a href="https://wa.me/2348166553284" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://instagram.com/AmneXchange" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/AmneXchange" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://facebook.com/AmneXchange" target="_blank"><i class="fab fa-facebook"></i></a>
       </p>
     </div>
   </section>
 
   <footer>
-    &copy; 2025 AmneTech. All rights reserved.
+    &copy; 2025 AmneXchange. All rights reserved.
   </footer>
+
+  <script>
+    const NGN_RATE = 1550;
+
+    async function fetchRates() {
+      try {
+        const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum,binancecoin&vs_currencies=usd");
+        const data = await res.json();
+
+        document.getElementById("usdt-rate").innerText = Math.round(data.tether.usd * NGN_RATE);
+        document.getElementById("btc-rate").innerText = Math.round(data.bitcoin.usd * NGN_RATE);
+        document.getElementById("eth-rate").innerText = Math.round(data.ethereum.usd * NGN_RATE);
+        document.getElementById("bnb-rate").innerText = Math.round(data.binancecoin.usd * NGN_RATE);
+      } catch (err) {
+        console.error("Failed to fetch rates:", err);
+      }
+    }
+
+    fetchRates();
+    setInterval(fetchRates, 1000); // update every minute
+  </script>
 </body>
 </html>
