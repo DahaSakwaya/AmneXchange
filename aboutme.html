@@ -11,7 +11,42 @@
       background: #111;
       font-size: 0.9rem;
       color: #ccc;
+    }  nav {
+      display: flex;
+      gap: 1.5rem;
     }
+
+    nav a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      background: gold;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+ </style>
+  
     <nav>
       <div class="menu-toggle" onclick="toggleMenu()">
         <span></span>
@@ -26,7 +61,7 @@
         <a href="aboutme">Meet The Founder</a>
       </div>
     </nav>
-   </style>
+  
 <section id="founder" style="text-align:center; padding: 3rem 2rem;">
   <h2 style="color: gold;"></h2>
   <img src="Daha1.jpg" alt="Daha Muhammad Sakwaya" style="width:300px; height:300px; object-fit:cover; margin-bottom:1rem;" />
