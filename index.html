@@ -84,6 +84,7 @@
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       flex: 1;
+      width: 200px;
     }
     .card:hover {
       transform: translateY(-5px);
@@ -98,6 +99,19 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+    }
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .usd-price {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .updated {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 4px;
     }
     .contact {
       text-align: center;
@@ -159,23 +173,27 @@
     <div class="rate-cards">
       <div class="card">
         <img src="https://cryptologos.cc/logos/tether-usdt-logo.png" alt="USDT" />
-        <p><strong>USDT</strong> – ₦<span id="usdt-rate">1550</span></p>
+        <div class="price">₦<span id="usdt-rate">Loading...</span></div>
+        <div class="usd-price">(<span id="usdt-usd">$0.00</span>)</div>
+        <div class="updated" id="usdt-updated"></div>
       </div>
       <div class="card">
         <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" />
-        <p><strong>BTC</strong> – ₦<span id="btc-rate">1550</span></p>
+        <div class="price">₦<span id="btc-rate">Loading...</span></div>
+        <div class="usd-price">(<span id="btc-usd">$0.00</span>)</div>
+        <div class="updated" id="btc-updated"></div>
       </div>
       <div class="card">
         <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" />
-        <p><strong>ETH</strong> – ₦<span id="eth-rate">1450</span></p>
+        <div class="price">₦<span id="eth-rate">Loading...</span></div>
+        <div class="usd-price">(<span id="eth-usd">$0.00</span>)</div>
+        <div class="updated" id="eth-updated"></div>
       </div>
       <div class="card">
         <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="BNB" />
-        <p><strong>BNB</strong> – ₦<span id="bnb-rate">1400</span></p>
-      </div>
-      <div class="card">
-        <img src="https://cryptologos.cc/logos/pi-network-pi-logo.png" alt="Pi" />
-        <p><strong>Pi</strong> – ₦<span id="pi-rate">50</span></p>
+        <div class="price">₦<span id="bnb-rate">Loading...</span></div>
+        <div class="usd-price">(<span id="bnb-usd">$0.00</span>)</div>
+        <div class="updated" id="bnb-updated"></div>
       </div>
     </div>
   </section>
@@ -205,17 +223,29 @@
         const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum,binancecoin&vs_currencies=usd");
         const data = await res.json();
 
-        document.getElementById("usdt-rate").innerText = Math.round(data.tether.usd * NGN_RATE);
-        document.getElementById("btc-rate").innerText = Math.round(data.bitcoin.usd * NGN_RATE);
-        document.getElementById("eth-rate").innerText = Math.round(data.ethereum.usd * NGN_RATE);
-        document.getElementById("bnb-rate").innerText = Math.round(data.binancecoin.usd * NGN_RATE);
+        const now = new Date().toLocaleTimeString();
+
+        const coins = [
+          { id: 'tether', symbol: 'usdt' },
+          { id: 'bitcoin', symbol: 'btc' },
+          { id: 'ethereum', symbol: 'eth' },
+          { id: 'binancecoin', symbol: 'bnb' }
+        ];
+
+        coins.forEach(coin => {
+          const usd = data[coin.id].usd;
+          const ngn = Math.round(usd * NGN_RATE).toLocaleString();
+          document.getElementById(`${coin.symbol}-rate`).innerText = ngn;
+          document.getElementById(`${coin.symbol}-usd`).innerText = `$${usd.toFixed(2)}`;
+          document.getElementById(`${coin.symbol}-updated`).innerText = `Updated: ${now}`;
+        });
       } catch (err) {
         console.error("Failed to fetch rates:", err);
       }
     }
 
     fetchRates();
-    setInterval(fetchRates, 1000); // update every second
+    setInterval(fetchRates, 1000);
   </script>
 </body>
 </html>
