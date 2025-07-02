@@ -1,33 +1,176 @@
- <style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Founder - AmneXchange</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #0b0b0b;
       color: #f5f5f5;
     }
-     footer {
+
+    header {
+      background: #111;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f5f5f5;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      background: gold;
+      margin: 4px 0;
+      width: 25px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    section {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: #111;
+    }
+
+    section h2 {
+      color: gold;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    section img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 0 15px gold;
+      margin-bottom: 1rem;
+    }
+
+    section h3 {
+      margin: 0;
+      color: #f5f5f5;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ccc;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    section p:first-of-type {
+      font-style: italic;
+      color: #bbb;
+      margin-bottom: 1rem;
+    }
+
+    footer {
       text-align: center;
       padding: 1rem;
       background: #111;
       font-size: 0.9rem;
       color: #ccc;
-    }  nav {
-      display: flex;
-      gap: 1.5rem;
     }
 
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
 
- </style>
- 
-  
-<section id="founder" style="text-align:center; padding: 3rem 2rem;">
-  <h2 style="color: gold;"></h2>
-  <img src="Daha1.jpg" alt="Daha Muhammad Sakwaya" style="width:300px; height:300px; object-fit:cover; margin-bottom:1rem;" />
-  <h3 style="margin: 0;"><i>Daha Muhammad Sakwaya</i></h3>
-  <p style="max-width:700px; margin: 1rem auto; color: #ccc;">
-    Daha popularly known as DMS is a Software Engineer, Cyber Security Analyst and Artificial Intelligence Enthusiast who is the visionary behind AmneXchange and AmneTech. His passion for digital innovation and commitment to trust, transparency, and client satisfaction drive the success of this platform. When you trade with AmneXchange, you’re in safe hands.
-  </p>
-</section>
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo1.png" alt="AmneXchange Logo" />
+    <nav>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#rates">Rates</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="aboutme.html">Meet The Founder</a>
+      </div>
+    </nav>
+  </header>
+
+  <section id="founder">
+    <h2>Meet the Founder</h2>
+    <img src="Daha1.jpg" alt="Daha Muhammad Sakwaya" />
+    <h3>Daha Muhammad Sakwaya</h3>
+    <p>(a.k.a. DMS)</p>
+    <p>
+      Daha Muhammad Sakwaya is a Software Engineer, Cybersecurity Analyst, and Artificial Intelligence Enthusiast. He is the visionary mind behind <strong>AmneXchange</strong> and <strong>AmneTech</strong>. Driven by a passion for digital innovation and a commitment to trust, transparency, and client satisfaction, he ensures every transaction is handled with integrity. When you trade with AmneXchange, you're not just trading crypto — you're partnering with excellence.
+    </p>
+  </section>
+
   <footer>
     &copy; 2025 AmneTech. All rights reserved.
   </footer>
+</body>
+</html>
