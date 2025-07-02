@@ -195,6 +195,27 @@
       color: #ccc;
     }
 
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      background: transparent;
+      padding: 0.75rem 0;
+    }
+
+    .marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee 15s linear infinite;
+      color: gold;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -217,31 +238,6 @@
         width: 100%;
       }
     }
-     .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      animation: marquee 15s linear infinite;
-      color: gold;
-      font-weight: bold;
-      padding: 0.75rem 0;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-
-    @keyframes marquee {
-      0%   { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-      }
-
   </style>
 
   <script>
@@ -307,9 +303,11 @@
 
   <section id="rates">
     <h2>Today's Rates</h2>
-     <div class="marquee">
-      Today's Rates: USDT - ₦1550/$ &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; BTC - ₦1550/$ &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Trade With Confidence • Speed • Transparency @ AmneXchange
-    </div
+    <div class="marquee-wrapper">
+      <div class="marquee">
+        Today's Rates: USDT - ₦1550/$ &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; BTC - ₦1550/$ &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Trade With Confidence • Speed • Transparency @ AmneXchange
+      </div>
+    </div>
   </section>
 
   <section id="testimonials">
