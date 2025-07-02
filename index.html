@@ -4,8 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AmneXchange - Buy & Sell Crypto Instantly</title>
+
+  <!-- SEO & Social -->
+  <meta name="description" content="AmneXchange – Trusted platform to buy and sell USDT, Bitcoin, NFT & Gift Cards instantly.">
+  <meta property="og:title" content="AmneXchange - Buy & Sell Crypto Instantly" />
+  <meta property="og:description" content="Fast • Trusted • Transparent – Trade USDT, BTC, NFT, and Gift Cards" />
+  <meta property="og:image" content="logo1.png" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     body {
       margin: 0;
@@ -63,7 +74,7 @@
 
     .hero {
       padding: 4rem 2rem;
-      background: radial-gradient(circle at center, #1a1a1a, #0b0b0b);
+      background: url('banner.png') center/cover no-repeat, radial-gradient(circle at center, #1a1a1a, #0b0b0b);
       text-align: center;
     }
 
@@ -145,14 +156,14 @@
       border: none;
     }
 
-    .contact-form a {
-      display: inline-block;
+    .contact-form button {
       background: gold;
       color: black;
       padding: 0.75rem 2rem;
       border-radius: 30px;
-      text-decoration: none;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
     }
 
     .social-icons a {
@@ -207,31 +218,41 @@
       }
     }
   </style>
+
   <script>
     function toggleMenu() {
       document.querySelector('.nav-links').classList.toggle('active');
     }
+
     function toggleFAQ(id) {
       const el = document.getElementById(id);
       el.style.display = el.style.display === 'block' ? 'none' : 'block';
     }
+
+    function sendWhatsAppMessage(event) {
+      event.preventDefault();
+      const name = document.querySelector('.contact-form input[type="text"]').value;
+      const email = document.querySelector('.contact-form input[type="email"]').value;
+      const message = document.querySelector('.contact-form textarea').value;
+      const text = `Hello, my name is ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+      window.open(`https://wa.me/2348166553284?text=${text}`, '_blank');
+    }
   </script>
 </head>
+
 <body>
   <header>
     <img src="logo1.png" alt="AmneXchange Logo" />
     <nav>
       <div class="menu-toggle" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#rates">Rates</a>
         <a href="#contact">Contact</a>
-        <a href="aboutme">Meet The Founder</a>
+        <a href="aboutme.html">Meet The Founder</a>
       </div>
     </nav>
   </header>
@@ -245,7 +266,7 @@
   <section id="about">
     <h2>About Us</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
-      AmneXchange is a trusted cryptocurrency Platform offering instant and transparent trading. Where you can buy and sell USDT and Bitcoin at the best market rates, known for honesty, speed, and reliability.
+      AmneXchange is a trusted cryptocurrency platform offering instant and transparent trading. You can buy and sell USDT and Bitcoin at the best market rates, known for honesty, speed, and reliability.
     </p>
   </section>
 
@@ -294,17 +315,17 @@
   <section id="contact">
     <h2>Contact Us</h2>
     <div class="contact">
-      <form class="contact-form">
+      <form class="contact-form" onsubmit="sendWhatsAppMessage(event)">
         <input type="text" placeholder="Your Name" required />
         <input type="email" placeholder="Your Email" required />
         <textarea rows="4" placeholder="Your Message" required></textarea>
-        <a href="https://wa.me/2348166553284" target="_blank">Send via WhatsApp</a>
+        <button type="submit">Send via WhatsApp</button>
       </form>
       <p class="social-icons">
-        <a href="https://wa.me/2348166553284" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://instagram.com/AmneXchange" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://twitter.com/AmneXchange" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://facebook.com/AmneXchange" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/2348166553284" target="_blank"><i class="fab fa-whatsapp" aria-label="WhatsApp"></i></a>
+        <a href="https://instagram.com/AmneXchange" target="_blank"><i class="fab fa-instagram" aria-label="Instagram"></i></a>
+        <a href="https://twitter.com/AmneXchange" target="_blank"><i class="fab fa-x-twitter" aria-label="Twitter"></i></a>
+        <a href="https://facebook.com/AmneXchange" target="_blank"><i class="fab fa-facebook" aria-label="Facebook"></i></a>
       </p>
     </div>
   </section>
